@@ -19,20 +19,11 @@ function* fetchCategoriesSaga() {
   }
 }
 
-// function* fetchJokeSaga(action) {
-//   try {
-//     const response = yield call(getRandomJoke, action.payload);
-//     yield put({ type: FETCH_JOKE_SUCCESS, payload: response.data.value.joke });
-//   } catch (error) {
-//     yield put({ type: FETCH_JOKE_FAILURE, payload: error.message });
-//   }
-// }
-
 function* fetchJokeSaga(action) {
   try {
     const response = yield call(getRandomJoke, action.payload);
-    console.log('API response:', response); // Verifica la respuesta de la API
-    yield put({ type: FETCH_JOKE_SUCCESS, payload: response }); // Pasa el objeto completo
+    console.log('API response:', response); 
+    yield put({ type: FETCH_JOKE_SUCCESS, payload: response }); 
   } catch (error) {
     yield put({ type: FETCH_JOKE_FAILURE, payload: error.message });
   }
